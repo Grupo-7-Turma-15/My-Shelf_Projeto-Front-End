@@ -22,10 +22,10 @@ export interface IFormLogin {
 }
 
 export interface IFormEdit {
-    name?: string;
-    email?: string;
-    img?: string;
-  }
+  name?: string;
+  email?: string;
+  img?: string;
+}
 
 export interface IUserContext {
   user: IUser | null;
@@ -33,7 +33,6 @@ export interface IUserContext {
   userRegister: (formData: IFormRegister) => Promise<void>;
   userLogin: (formData: IFormLogin) => Promise<void>;
   userLogout: () => void;
-  userProfile: () => Promise<void>
-  userEdit: (formData: IFormEdit) => Promise<void>
-  
+  userProfile: () => Promise<void>;
+  userEdit: (formData: IFormEdit) => Promise<void>;
 }
