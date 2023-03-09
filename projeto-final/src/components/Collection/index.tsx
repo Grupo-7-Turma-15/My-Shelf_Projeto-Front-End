@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useContext, useEffect } from "react";
+import { BookContext } from "../../providers/BookContext";
+import { UserContext } from "../../providers/UserContext";
+
 
 const Collection = () => {
-    return (
-        <div>
-            <h1>Coleção</h1>
-        </div>
-    )
-}
+const {books} = useContext(UserContext)
 
-export default Collection
+  const {
+    view,
+    setView,
+    titleCreate,
+    titleGet,
+    titleEdit,
+    titleDelete,
+  } = useContext(BookContext);
+
+  
+console.log(books);
+
+  return (
+    <div>
+      <h1>Coleção</h1>
+    </div>
+  );
+};
+
+export default Collection;

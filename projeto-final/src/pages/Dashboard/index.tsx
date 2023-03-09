@@ -2,21 +2,12 @@ import React, { useContext, useState } from "react";
 import Collection from "../../components/Collection";
 import Favourites from "../../components/Favourites";
 import Home from "../../components/Home";
-import { BookContext } from "../../providers/BookContext";
 import { UserContext } from "../../providers/UserContext";
 
 export default function Dashboard() {
   const [page, setPage] = useState("home");
-  const { user, userLogout } = useContext(UserContext);
-  const {
-    books,
-    view,
-    setView,
-    titleCreate,
-    titleGet,
-    titleEdit,
-    titleDelete,
-  } = useContext(BookContext);
+  const { user, userLogout, books } = useContext(UserContext);
+
   return (
     <div>
       <header>

@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 
 const Favourites = () => {
-    return (
-        <div>
-            <h1>Favoritos</h1>
-        </div>
-    )
-}
+  const { books } = useContext(UserContext);
 
-export default Favourites
+  return (
+    <div>
+      <h1>Favoritos</h1>
+    </div>
+  );
+};
+
+export default Favourites;
