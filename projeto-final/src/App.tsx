@@ -1,6 +1,7 @@
 
 import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
+import { GlobalStyles } from './GlobalStyles/globalStyles';
 import Router from './Routes/AppRoutes';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
 
   return (
     <>
+      <GlobalStyles/>
       <Router />
       <ToastContainer
         position="top-right"

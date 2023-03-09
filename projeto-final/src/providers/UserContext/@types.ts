@@ -32,7 +32,7 @@ export interface IFormEdit {
 }
 
 export interface IBooks {
-  id?:number;
+  id:number;
   userId?: number;
   title: string;
   type?: string;
