@@ -1,12 +1,13 @@
 import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../../server/Api";
-import { IBooks, IBookChildren, IBookContext } from "./@types";
+import { IBooks } from "../UserContext/@types";
+import {  IBookChildren, IBookContext } from "./@types";
 
 export const BookContext = createContext({} as IBookContext);
 
 export const BookProvider = ({ children }: IBookChildren) => {
-  const [books, setBooks] = useState<IBooks[]>([]);
+  
   const [view, setView] = useState<IBooks | null>(null);
 
   const token = localStorage.getItem('@KenzieBooks:TOKEN');
@@ -18,7 +19,7 @@ export const BookProvider = ({ children }: IBookChildren) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      setBooks([...books, response.data]);
+      // setBooks([...books, response.data]);
       toast.success("Livro criado com sucesso");
     } catch (error) {
       console.log(error);
@@ -70,5 +71,5 @@ export const BookProvider = ({ children }: IBookChildren) => {
 
 
 
-  return <BookContext.Provider value={{books,setBooks,view,setView, titleCreate, titleGet, titleEdit, titleDelete}}>{children}</BookContext.Provider>;
+  return <BookContext.Provider value={{view,setView, titleCreate, titleGet, titleEdit, titleDelete}}>{children}</BookContext.Provider>;
 };

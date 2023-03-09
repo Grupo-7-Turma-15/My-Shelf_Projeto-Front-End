@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { BookContext } from "../../providers/BookContext";
 import { UserContext } from "../../providers/UserContext";
-import { api } from "../../server/Api";
+
 
 const Collection = () => {
+const {books} = useContext(UserContext)
+
   const {
-    books,
-    setBooks,
     view,
     setView,
     titleCreate,
@@ -15,30 +15,8 @@ const Collection = () => {
     titleDelete,
   } = useContext(BookContext);
 
-  useEffect(() => {
-    const token = localStorage.getItem("@KenzieBooks:TOKEN");
-    const userId = localStorage.getItem("@KenzieBooks:ID");
-    const userProfile = async () => {
-      if (token) {
-        try {
-          const response = await api.get(`/users/${userId}`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          setBooks(response.data.title);
-          console.log(response.data);
-          
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    };
-    
-  }, []);
-
-
-
+  
+console.log(books);
 
   return (
     <div>

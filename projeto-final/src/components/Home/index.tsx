@@ -1,23 +1,14 @@
-import React, { useContext } from 'react'
-import { BookContext } from '../../providers/BookContext';
+import React, { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 
 const Home = () => {
-    const {
-        books,
-        setBooks,
-        view,
-        setView,
-        titleCreate,
-        titleGet,
-        titleEdit,
-        titleDelete,
-      } = useContext(BookContext);
-      
-    return (
-        <div>
-            <h1>home</h1>
-        </div>
-    )
-}
+  const { books } = useContext(UserContext);
 
-export default Home
+  return (
+    <div>
+      <h1>home</h1>
+    </div>
+  );
+};
+
+export default Home;

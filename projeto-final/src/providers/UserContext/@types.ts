@@ -1,4 +1,4 @@
-import { IBooks } from './../BookContext/@types';
+
 export interface IUserChildren {
   children: React.ReactNode;
 }
@@ -31,9 +31,23 @@ export interface IFormEdit {
   img?: string;
 }
 
+export interface IBooks {
+  id?:number;
+  userId?: number;
+  title: string;
+  type?: string;
+  cover?: string;
+  synopsis?: string;
+  author?: string;
+  stopped_at?:string;
+  status?: "lido" | "lendo" | "quero ler"
+}
+
 export interface IUserContext {
   user: IUser | null;
   setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
+  books: IBooks[];
+  setBooks: React.Dispatch<React.SetStateAction<IBooks[]>>;
   userRegister: (formData: IFormRegister) => Promise<void>;
   userLogin: (formData: IFormLogin) => Promise<void>;
   userLogout: () => void;

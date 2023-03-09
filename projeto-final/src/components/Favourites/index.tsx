@@ -1,34 +1,14 @@
-import React, { useContext, useEffect } from 'react'
-import { BookContext } from '../../providers/BookContext';
-import { UserContext } from '../../providers/UserContext';
+import React, { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 
 const Favourites = () => {
-    const {
-    books,
-    setBooks,
-    view,
-    setView,
-    titleCreate,
-    titleGet,
-    titleEdit,
-    titleDelete,
-  } = useContext(BookContext);
+  const { books } = useContext(UserContext);
 
-  const {userProfile} = useContext(UserContext)
-
- 
-  
-  
-  console.log(books);
-  
   return (
-        
-        <div>
-            <h1>Favoritos</h1>
-            
-            
-        </div>
-    )
-}
+    <div>
+      <h1>Favoritos</h1>
+    </div>
+  );
+};
 
-export default Favourites
+export default Favourites;

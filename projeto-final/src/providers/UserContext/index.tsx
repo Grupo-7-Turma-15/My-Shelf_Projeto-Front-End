@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../../server/Api";
-import { BookContext } from "../BookContext";
+
 import {
   IUserContext,
   IUserChildren,
@@ -10,24 +10,19 @@ import {
   IFormRegister,
   IFormLogin,
   IFormEdit,
+  IBooks,
 } from "./@types";
 
 export const UserContext = createContext({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserChildren) => {
   const [user, setUser] = useState<IUser | null>(null);
+  const [books, setBooks] = useState<IBooks[]>([]);
 
   const navigate = useNavigate();
 
-  const {setBooks} = useContext(BookContext)
-
-  const token = localStorage.getItem('@KenzieBooks:TOKEN');
-  const userId = (localStorage.getItem('@KenzieBooks:ID'));
-
-  console.log(userId);
-
-
-  
+  const token = localStorage.getItem("@KenzieBooks:TOKEN");
+  const userId = localStorage.getItem("@KenzieBooks:ID");
 
   const userRegister = async (formData: IFormRegister) => {
     try {
@@ -64,61 +59,62 @@ export const UserProvider = ({ children }: IUserChildren) => {
     navigate("/");
   };
 
-  const userProfile = async ():Promise<void> =>{
-    // if(token){
-    //   try {
-    //     const response = await api.get(`/users/${userId}`, {
-    //         headers: {
-    //           Authorization: `Bearer ${token}`,
-    //         },
-    //       });
-       
-    //     console.log(response.data);
-    //     console.log("Oi");
-    // } catch (error) {
-    //     console.log(error);
-    // }
-    // }
-   
-        const response = await api.get(`/users/${userId}`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-       console.log(response);
-       
-      
-        }
-        
- 
-
-  useEffect(()=>{
-    userProfile()
-  },[token])
-
- 
-
-  const goToRegister = ()=>{
-    navigate("/register")
-  }
-
-  const goToLogin = ()=>{
-    navigate("/")
-  }
-
-  const userEdit = async (formData:IFormEdit) =>{
-    try {
-        const response = await api.patch(`/users/${userId}`, formData);
-        setUser(response.data)
-        toast.success("Usuário editado com sucesso");
-        navigate("/dashboard");
-    } catch (error) {
+  const userProfile = async () => {
+    if (token) {
+      try {
+        const response = await api.get(`/users/${userId}?_embed=titles`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setBooks(response.data.titles)
+        console.log(response.data);
+        console.log("Oi");
+      } catch (error) {
         console.log(error);
-        toast.error("Tente novamente");
+      }
     }
-  }
+  };
+
+  useEffect(() => {
+    userProfile();
+  }, [token]);
+
+  const goToRegister = () => {
+    navigate("/register");
+  };
+
+  const goToLogin = () => {
+    navigate("/");
+  };
+
+  const userEdit = async (formData: IFormEdit) => {
+    try {
+      const response = await api.patch(`/users/${userId}`, formData);
+      setUser(response.data);
+      toast.success("Usuário editado com sucesso");
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+      toast.error("Tente novamente");
+    }
+  };
   return (
-    <UserContext.Provider value={{ user, setUser, userLogin, userLogout, userRegister, userProfile, userEdit, goToLogin, goToRegister }}>
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        books,
+        setBooks,
+        userLogin,
+        userLogout,
+        userRegister,
+        userProfile,
+        userEdit,
+        goToLogin,
+        goToRegister,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
