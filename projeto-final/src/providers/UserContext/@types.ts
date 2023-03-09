@@ -1,3 +1,4 @@
+import { IBooks } from './../BookContext/@types';
 export interface IUserChildren {
   children: React.ReactNode;
 }
@@ -7,6 +8,7 @@ export interface IUser {
   name: string;
   email: string;
   img?: string;
+  titles?:IBooks[];
 }
 
 export interface IFormRegister {

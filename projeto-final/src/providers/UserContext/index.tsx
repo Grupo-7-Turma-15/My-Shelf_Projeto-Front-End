@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../../server/Api";
@@ -23,6 +23,11 @@ export const UserProvider = ({ children }: IUserChildren) => {
 
   const token = localStorage.getItem('@KenzieBooks:TOKEN');
   const userId = (localStorage.getItem('@KenzieBooks:ID'));
+
+  console.log(userId);
+
+
+  
 
   const userRegister = async (formData: IFormRegister) => {
     try {
@@ -59,18 +64,39 @@ export const UserProvider = ({ children }: IUserChildren) => {
     navigate("/");
   };
 
-  const userProfile = async () =>{
-    try {
+  const userProfile = async ():Promise<void> =>{
+    // if(token){
+    //   try {
+    //     const response = await api.get(`/users/${userId}`, {
+    //         headers: {
+    //           Authorization: `Bearer ${token}`,
+    //         },
+    //       });
+       
+    //     console.log(response.data);
+    //     console.log("Oi");
+    // } catch (error) {
+    //     console.log(error);
+    // }
+    // }
+   
         const response = await api.get(`/users/${userId}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           });
-        setBooks(response.data.title)
-    } catch (error) {
-        console.log(error);
-    }
-  }
+       console.log(response);
+       
+      
+        }
+        
+ 
+
+  useEffect(()=>{
+    userProfile()
+  },[token])
+
+ 
 
   const goToRegister = ()=>{
     navigate("/register")
