@@ -11,6 +11,7 @@ export interface IBookChildren {
     synopsis?: string;
     author?: string;
     stopped_at?:string;
+    status?: "lido" | "lendo" | "quero ler"
   }
   
 
