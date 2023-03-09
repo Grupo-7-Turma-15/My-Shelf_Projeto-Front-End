@@ -14,6 +14,8 @@ export interface IFormRegister {
   password: string;
   email: string;
   img?: string;
+  
+  
 }
 
 export interface IFormLogin {
@@ -35,4 +37,6 @@ export interface IUserContext {
   userLogout: () => void;
   userProfile: () => Promise<void>;
   userEdit: (formData: IFormEdit) => Promise<void>;
+  goToRegister: () => void;
+  goToLogin: () => void;
 }
