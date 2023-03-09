@@ -72,6 +72,14 @@ export const UserProvider = ({ children }: IUserChildren) => {
     }
   }
 
+  const goToRegister = ()=>{
+    navigate("/register")
+  }
+
+  const goToLogin = ()=>{
+    navigate("/")
+  }
+
   const userEdit = async (formData:IFormEdit) =>{
     try {
         const response = await api.patch(`/users/${userId}`, formData);
@@ -84,7 +92,7 @@ export const UserProvider = ({ children }: IUserChildren) => {
     }
   }
   return (
-    <UserContext.Provider value={{ user, setUser, userLogin, userLogout, userRegister, userProfile, userEdit }}>
+    <UserContext.Provider value={{ user, setUser, userLogin, userLogout, userRegister, userProfile, userEdit, goToLogin, goToRegister }}>
       {children}
     </UserContext.Provider>
   );
