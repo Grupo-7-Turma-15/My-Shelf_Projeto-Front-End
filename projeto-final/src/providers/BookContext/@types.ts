@@ -9,6 +9,6 @@ export interface IBookChildren {
     setView: React.Dispatch<React.SetStateAction<IBooks | null>>;
     titleCreate: (formData: IBooks) => Promise<void>;
     titleGet: (title_id: number) => Promise<void>;
-    titleEdit: (formData: IBooks) => Promise<void>;
+    titleEdit: (title_id: number, formData: IBooks) => Promise<void>;
     titleDelete: (title_id: number) => Promise<void>;
   }
