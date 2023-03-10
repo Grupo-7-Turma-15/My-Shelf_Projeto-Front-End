@@ -1,19 +1,16 @@
-
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { GlobalStyles } from './GlobalStyles/globalStyles';
-import Router from './Routes/AppRoutes';
+import { GlobalStyles } from "./GlobalStyles/globalStyles";
+import Router from "./Routes/AppRoutes";
 
 function App() {
-
-
   return (
     <>
-      <GlobalStyles/>
+      {/* <GlobalStyles/> */}
       <Router />
       <ToastContainer
         position="top-right"
-        autoClose={1500}
+        autoClose={500}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -24,7 +21,7 @@ function App() {
         theme="light"
       />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,4 +1,3 @@
-
 export interface IUserChildren {
   children: React.ReactNode;
 }
@@ -8,7 +7,7 @@ export interface IUser {
   name: string;
   email: string;
   img?: string;
-  titles?:IBooks[];
+  titles?: IBooks[];
 }
 
 export interface IFormRegister {
@@ -16,8 +15,6 @@ export interface IFormRegister {
   password: string;
   email: string;
   img?: string;
-  
-  
 }
 
 export interface IFormLogin {
@@ -32,15 +29,15 @@ export interface IFormEdit {
 }
 
 export interface IBooks {
-  id:number;
+  id: number;
   userId?: number;
   title: string;
   type?: string;
   cover?: string;
   synopsis?: string;
   author?: string;
-  stopped_at?:string;
-  status?: "lido" | "lendo" | "quero ler"
+  stopped_at?: string;
+  status?: "lido" | "lendo" | "quero ler";
 }
 
 export interface IUserContext {
