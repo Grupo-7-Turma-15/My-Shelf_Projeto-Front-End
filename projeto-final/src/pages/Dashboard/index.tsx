@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Collection from "../../components/Collection";
 import Favourites from "../../components/Favourites";
 import Home from "../../components/Home";
@@ -6,7 +6,7 @@ import { UserContext } from "../../providers/UserContext";
 
 export default function Dashboard() {
   const [page, setPage] = useState("home");
-  const { user, userLogout, books } = useContext(UserContext);
+  const { user, userLogout, books, userProfile } = useContext(UserContext);
 
   return (
     <div>

@@ -67,9 +67,10 @@ export const UserProvider = ({ children }: IUserChildren) => {
             Authorization: `Bearer ${token}`,
           },
         });
-        setBooks(response.data.titles)
         console.log(response.data);
-        console.log("Oi");
+
+        setBooks(response.data.titles);
+        console.log(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -99,6 +100,7 @@ export const UserProvider = ({ children }: IUserChildren) => {
       toast.error("Tente novamente");
     }
   };
+
   return (
     <UserContext.Provider
       value={{

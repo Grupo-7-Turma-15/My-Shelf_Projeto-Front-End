@@ -5,14 +5,19 @@ import { IBooks } from "../../../providers/UserContext/@types";
 import { StyledCard } from "./style";
 
 const CollectionCard = (book: IBooks) => {
-  const { setView, titleEdit, titleDelete } = useContext(BookContext);
-  const { books, setBooks } = useContext(UserContext);
+  const { view, setView, titleDelete, setEdit } = useContext(BookContext);
+  const { books, setBooks, userProfile } = useContext(UserContext);
 
   function bookDelete(id: number) {
     titleDelete(id);
     setView(null);
     const filteredBooks = books.filter((book) => book.id !== id);
     setBooks(filteredBooks);
+  }
+
+  function bookEdit() {
+    setEdit(view);
+    setView(null);
   }
 
   return (
@@ -38,7 +43,7 @@ const CollectionCard = (book: IBooks) => {
         <span>{book.stopped_at}</span>
       </div>
       <div>
-        <button>Editar</button>
+        <button onClick={() => bookEdit()}>Editar</button>
         <button onClick={() => bookDelete(book.id)}>Remover</button>
       </div>
     </StyledCard>

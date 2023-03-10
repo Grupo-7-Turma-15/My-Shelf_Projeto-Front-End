@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const api = axios.create({
-  baseURL: 'https://kenzie-books.onrender.com',
+  baseURL: "https://kenzie-books.onrender.com",
   timeout: 6000,
 });
