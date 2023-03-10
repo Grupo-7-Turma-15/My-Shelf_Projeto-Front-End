@@ -6,7 +6,15 @@ import { UserContext } from "../../providers/UserContext";
 
 export default function Dashboard() {
   const [page, setPage] = useState("home");
-  const { user, userLogout, books, userProfile } = useContext(UserContext);
+  const { update, userLogout, books, userProfile } = useContext(UserContext);
+
+  useEffect(() => {
+    userProfile();
+  }, [page]);
+
+  useEffect(() => {
+    userProfile();
+  }, [update]);
 
   return (
     <div>

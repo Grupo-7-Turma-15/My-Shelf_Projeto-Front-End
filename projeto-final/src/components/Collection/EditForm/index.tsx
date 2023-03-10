@@ -18,7 +18,7 @@ export interface IBookFormEdit {
 const EditForm = () => {
   const { edit, setEdit, titleEdit } = useContext(BookContext);
 
-  const { userProfile } = useContext(UserContext);
+  const { update, setUpdate } = useContext(UserContext);
 
   const { register, handleSubmit } = useForm<IBookFormEdit>({
     defaultValues: {
@@ -35,7 +35,7 @@ const EditForm = () => {
   const submit: SubmitHandler<IBookFormEdit> = (formData) => {
     titleEdit(edit!.id, formData);
 
-    userProfile();
+    setUpdate(!update)
     setEdit(null);
   };
 
@@ -48,7 +48,6 @@ const EditForm = () => {
       <Input label="Tipo" register={register("type")} />
       <Input label="Onde parei" register={register("stopped_at")} />
       <select {...register("status")}>
-        <option value="">Escolha uma opção</option>
         <option value="lido">Lido</option>
         <option value="lendo">Lendo</option>
         <option value="quero ler">Quero ler</option>

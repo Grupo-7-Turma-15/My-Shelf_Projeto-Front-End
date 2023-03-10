@@ -21,7 +21,7 @@ const CreateForm = () => {
 
   const { titleCreate, setCreate } = useContext(BookContext);
 
-  const { userProfile, setBooks } = useContext(UserContext);
+  const { update, setUpdate } = useContext(UserContext);
 
   const { register, handleSubmit } = useForm<IBookFormCreate>();
 
@@ -29,7 +29,7 @@ const CreateForm = () => {
     titleCreate(formData);
 
     setCreate(false);
-    userProfile();
+    setUpdate(!update)
   };
 
   return (
@@ -46,7 +46,6 @@ const CreateForm = () => {
         value={Number(userId)}
       />
       <select {...register("status")}>
-        <option value="">Escolha uma opção</option>
         <option value="lido">Lido</option>
         <option value="lendo">Lendo</option>
         <option value="quero ler">Quero ler</option>
