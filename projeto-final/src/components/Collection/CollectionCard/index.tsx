@@ -6,7 +6,7 @@ import { StyledCard } from "./style";
 
 const CollectionCard = (book: IBooks) => {
   const { view, setView, titleDelete, setEdit } = useContext(BookContext);
-  const { books, setBooks, userProfile } = useContext(UserContext);
+  const { books, setBooks } = useContext(UserContext);
 
   function bookDelete(id: number) {
     titleDelete(id);

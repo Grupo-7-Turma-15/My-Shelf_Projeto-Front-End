@@ -52,4 +52,6 @@ export interface IUserContext {
   userEdit: (formData: IFormEdit) => Promise<void>;
   goToRegister: () => void;
   goToLogin: () => void;
+  update: boolean;
+  setUpdate: React.Dispatch<React.SetStateAction<boolean>>;
 }

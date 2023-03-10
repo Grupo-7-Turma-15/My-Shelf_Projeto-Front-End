@@ -18,6 +18,7 @@ export const UserContext = createContext({} as IUserContext);
 export const UserProvider = ({ children }: IUserChildren) => {
   const [user, setUser] = useState<IUser | null>(null);
   const [books, setBooks] = useState<IBooks[]>([]);
+  const [update,setUpdate] = useState(false)
 
   const navigate = useNavigate();
 
@@ -115,6 +116,8 @@ export const UserProvider = ({ children }: IUserChildren) => {
         userEdit,
         goToLogin,
         goToRegister,
+        update,
+        setUpdate
       }}
     >
       {children}

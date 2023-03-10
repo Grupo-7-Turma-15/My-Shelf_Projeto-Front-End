@@ -1,17 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BookContext } from "../../providers/BookContext";
 import { UserContext } from "../../providers/UserContext";
-import { IBooks } from "../../providers/UserContext/@types";
 import SimpleCard from "../SimpleCard";
 import CollectionCard from "./CollectionCard";
 import CreateForm from "./CreateForm";
 import EditForm from "./EditForm";
+
+
+
+
+
 
 const Collection = () => {
   const { books } = useContext(UserContext);
 
   const { view, edit, setCreate, create } =
     useContext(BookContext);
+
+    const lidos= books.filter(book=>book.status=="lido")
+    const lendo = books.filter(book=>book.status=="lendo")
+    const queroLer = books.filter(book=>book.status=="quero ler")
 
 
   return (
@@ -22,8 +30,44 @@ const Collection = () => {
         <button onClick={()=>setCreate(true)}>+</button>
       </div>
       {create?(<CreateForm/>):null}
+      
+      <h2>Lido</h2>
       <ul>
-        {books.map((book) => (
+        {lidos.map((book) => (
+          <SimpleCard
+            key={book.id}
+            title={book.title}
+            cover={book.cover}
+            author={book.author}
+            id={book.id}
+            type={book.type}
+            synopsis={book.synopsis}
+            stopped_at={book.stopped_at}
+            status={book.status}
+          />
+        ))}
+      </ul>
+      
+      <h2>Lendo</h2>
+      <ul>
+        {lendo.map((book) => (
+          <SimpleCard
+            key={book.id}
+            title={book.title}
+            cover={book.cover}
+            author={book.author}
+            id={book.id}
+            type={book.type}
+            synopsis={book.synopsis}
+            stopped_at={book.stopped_at}
+            status={book.status}
+          />
+        ))}
+      </ul>
+      
+      <h2>Quero Ler</h2>
+      <ul>
+        {queroLer.map((book) => (
           <SimpleCard
             key={book.id}
             title={book.title}
