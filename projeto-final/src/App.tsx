@@ -6,7 +6,7 @@ import Router from "./Routes/AppRoutes";
 function App() {
   return (
     <>
-      {/* <GlobalStyles/> */}
+      <GlobalStyles />
       <Router />
       <ToastContainer
         position="top-right"
