@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import Input from "../../components/InputDefault";
 import { UserContext } from "../../providers/UserContext";
 import { IFormLogin } from "../../providers/UserContext/@types";
+import { styledHomePage } from "./style";
 
 export default function HomePage() {
   const { goToRegister, userLogin } = useContext(UserContext);
@@ -18,7 +19,7 @@ export default function HomePage() {
   };
 
   return (
-    <div>
+    <styledHomePage>
       <form onSubmit={handleSubmit(submit)}>
         <Input
           label="Seu email"
@@ -35,6 +36,6 @@ export default function HomePage() {
         <button type="submit">Login</button>
       </form>
       <button onClick={() => goToRegister()}>Cadastrar</button>
-    </div>
+    </styledHomePage>
   );
 }
