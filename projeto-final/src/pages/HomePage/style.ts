@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const styledHomePage = styled.div`
+export const StyledHomePage = styled.div`
   display: flex;
 `;
