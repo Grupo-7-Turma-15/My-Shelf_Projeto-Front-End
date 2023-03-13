@@ -6,31 +6,24 @@ import CollectionCard from "./CollectionCard";
 import CreateForm from "./CreateForm";
 import EditForm from "./EditForm";
 
-
-
-
-
-
 const Collection = () => {
   const { books } = useContext(UserContext);
 
-  const { view, edit, setCreate, create } =
-    useContext(BookContext);
+  const { view, edit, setCreate, create } = useContext(BookContext);
 
-    const lidos= books.filter(book=>book.status=="lido")
-    const lendo = books.filter(book=>book.status=="lendo")
-    const queroLer = books.filter(book=>book.status=="quero ler")
-
+  const lidos = books.filter((book) => book.status == "lido");
+  const lendo = books.filter((book) => book.status == "lendo");
+  const queroLer = books.filter((book) => book.status == "quero ler");
 
   return (
     <div>
       <h1>Coleção</h1>
       <div>
         <h3>Criar título</h3>
-        <button onClick={()=>setCreate(true)}>+</button>
+        <button onClick={() => setCreate(true)}>+</button>
       </div>
-      {create?(<CreateForm/>):null}
-      
+      {create ? <CreateForm /> : null}
+
       <h2>Lido</h2>
       <ul>
         {lidos.map((book) => (
@@ -46,8 +39,19 @@ const Collection = () => {
             status={book.status}
           />
         ))}
+        <SimpleCard
+          key={45}
+          title="teste"
+          cover="https://i.pinimg.com/564x/3c/7d/bc/3c7dbc437f609985457260cbe176d14e.jpg"
+          author="autor"
+          id={1}
+          type="não sei"
+          synopsis="{book.synopsis}"
+          stopped_at="{book.stopped_at}"
+          status="lido"
+        />
       </ul>
-      
+
       <h2>Lendo</h2>
       <ul>
         {lendo.map((book) => (
@@ -64,7 +68,7 @@ const Collection = () => {
           />
         ))}
       </ul>
-      
+
       <h2>Quero Ler</h2>
       <ul>
         {queroLer.map((book) => (
@@ -95,15 +99,9 @@ const Collection = () => {
         />
       ) : null}
 
-      {edit?(<EditForm/>):null}
+      {edit ? <EditForm /> : null}
     </div>
   );
-
-  
-
-  
 };
 
 export default Collection;
-
-
