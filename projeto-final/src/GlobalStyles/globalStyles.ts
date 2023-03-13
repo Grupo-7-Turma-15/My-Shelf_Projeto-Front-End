@@ -28,8 +28,8 @@ export const GlobalStyles = createGlobalStyle`
     --color-blue-00: #4A83F6;
     --color-grey-00: #FFFFFF;
     --color-grey-01: #868E96;
-    --color-grey-3: #212529;
-    --color-grey-4: #1D1D2A;
+    --color-grey-03: #212529;
+    --color-grey-04: #1D1D2A;
 
     --font-nav:24px;
     --font-title:20px;
