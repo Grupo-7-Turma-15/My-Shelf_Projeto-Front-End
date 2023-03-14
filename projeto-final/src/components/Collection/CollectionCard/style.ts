@@ -66,15 +66,19 @@ export const StyledCard = styled.li`
         color: var(--color-grey-00);
         font-size: var(--font-text-default);
       }
-      button:hover {
-        filter: saturate(32%) invert(87%)
-          drop-shadow(0px 0px 5px var(--color-blue-00));
-      }
       .editBtn {
         background-color: var(--color-green-00);
+        margin-right: 10px;
+      }
+      .editBtn:hover {
+        background-color: var(--color-red-00);
+        filter: invert(87%) drop-shadow(0px 0px 5px var(--color-blue-00));
       }
       .deleteBtn {
         background-color: var(--color-red-00);
+      }
+      .deleteBtn:hover {
+        filter: drop-shadow(0px 0px 5px var(--color-red-00));
       }
     }
   }

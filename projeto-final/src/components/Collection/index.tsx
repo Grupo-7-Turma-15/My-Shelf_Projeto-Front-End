@@ -18,9 +18,9 @@ const Collection = () => {
 
   return (
     <StyledCollection>
-      <div className="createTitleBtn">
+      <div onClick={() => setCreate(true)} className="createTitleBtn">
         <h3>Adicionar Livro</h3>
-        <span onClick={() => setCreate(true)}>+</span>
+        <span>+</span>
       </div>
       {create ? <CreateForm /> : null}
 
