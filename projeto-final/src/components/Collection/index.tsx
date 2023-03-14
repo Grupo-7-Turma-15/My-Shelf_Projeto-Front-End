@@ -39,17 +39,6 @@ const Collection = () => {
             status={book.status}
           />
         ))}
-        <SimpleCard
-          key={45}
-          title="teste"
-          cover="https://i.pinimg.com/564x/3c/7d/bc/3c7dbc437f609985457260cbe176d14e.jpg"
-          author="autor"
-          id={1}
-          type="não sei"
-          synopsis="Culpa nulla pariatur cupidatat nisi incididunt ea do ipsum. Incididunt quis mollit elit commodo cillum eiusmod reprehenderit labore irure. Cillum et incididunt et nostrud exercitation quis aute laboris non ut adipisicing. Laboris ad minim aute nulla proident deserunt velit anim sunt aliquip ut sit. Exercitation aliquip ullamco officia non aliqua. Sint deserunt aliquip veniam id eiusmod sit consectetur mollit ea aliqua officia consequat. Magna non mollit nisi est commodo voluptate aute id. Deserunt nostrud id do in nisi mollit deserunt non. Pariatur fugiat cillum irure elit sint nisi ad ipsum culpa deserunt cupidatat esse consequat laboris. Id aliquip non consectetur esse proident duis Lorem."
-          stopped_at="{book.stopped_at}"
-          status="lido"
-        />
       </ul>
 
       <h2>Lendo</h2>
