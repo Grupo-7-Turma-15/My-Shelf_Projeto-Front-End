@@ -35,7 +35,7 @@ const CreateForm = () => {
 
   return (
     <StyledModalCreate>
-      <form onSubmit={handleSubmit(submit)}>
+      <form className="modal" onSubmit={handleSubmit(submit)}>
         <Input
           label="Titulo"
           register={register("title")}
@@ -56,21 +56,27 @@ const CreateForm = () => {
         <Input
           label="Onde parei"
           register={register("stopped_at")}
-          className={""}
+          className={"input"}
         />
         <Input
           label="ID do usuário"
           register={register("userId")}
           value={Number(userId)}
-          className={""}
+          className={"input"}
         />
         <select {...register("status")}>
           <option value="lido">Lido</option>
           <option value="lendo">Lendo</option>
           <option value="quero ler">Quero ler</option>
         </select>
-        <button type="submit">Criar</button>
-        <button onClick={() => setCreate(false)}>Cancelar</button>
+        <div className="aligneBtn">
+          <button className="createBtn" type="submit">
+            Criar
+          </button>
+          <button className="cancelBtn" onClick={() => setCreate(false)}>
+            Cancelar
+          </button>
+        </div>
       </form>
     </StyledModalCreate>
   );
