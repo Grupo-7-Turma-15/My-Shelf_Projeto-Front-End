@@ -8,4 +8,10 @@ export const StyledSimpleCard = styled.li`
   button {
     background-color: var(--color-grey-04);
   }
+  h3 {
+    color: var(--color-blue-00);
+  }
+  h4 {
+    color: var(--color-grey-00);
+  }
 `;
