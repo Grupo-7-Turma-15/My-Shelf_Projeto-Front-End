@@ -26,6 +26,7 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     --color-green-00: #52FF00;
     --color-blue-00: #4A83F6;
+    --color-red-00: #E73A3A;
     --color-grey-00: #FFFFFF;
     --color-grey-01: #868E96;
     --color-grey-03: #212529;

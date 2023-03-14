@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { StyledRegisterPage } from "./style";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Input from "../../components/InputDefault";
 import { UserContext } from "../../providers/UserContext";

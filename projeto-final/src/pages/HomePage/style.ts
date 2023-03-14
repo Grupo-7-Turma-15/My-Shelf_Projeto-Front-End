@@ -31,10 +31,16 @@ export const StyledHomePage = styled.div`
     }
 
     .input {
-      filter: invert(100%);
+      filter: saturate(32%) invert(87%)
+        drop-shadow(0px 0px 5px var(--color-blue-00));
     }
-
-    button:hover {
+    .registerBtn:hover {
+      background-color: var(--color-blue-00);
+      filter:drop-shadow(0px 0px 5px var(--color-blue-00));
+    }
+    }
+    .loginBtn:hover {
+      color: var(--color-grey-04);
       filter: saturate(32%) invert(87%)
         drop-shadow(0px 0px 5px var(--color-blue-00));
     }

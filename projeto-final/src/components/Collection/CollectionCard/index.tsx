@@ -22,29 +22,39 @@ const CollectionCard = (book: IBooks) => {
 
   return (
     <StyledCard>
-      <div>
-        <h2>{book.title}</h2>
-        <button onClick={() => setView(null)}>x</button>
-      </div>
-      <div>
-        <img src={book.cover} alt={book.title} />
-      </div>
-      <p>{book.synopsis}</p>
-      <div>
-        <h4>Author:</h4>
-        <span>{book.author}</span>
-      </div>
-      <div>
-        <h4>Tipo:</h4>
-        <span>{book.type}</span>
-      </div>
-      <div>
-        <h4>Aonde parou:</h4>
-        <span>{book.stopped_at}</span>
-      </div>
-      <div>
-        <button onClick={() => bookEdit()}>Editar</button>
-        <button onClick={() => bookDelete(book.id)}>Remover</button>
+      <div className="modal">
+        <div className="headerModal">
+          <h2>{book.title}</h2>
+          <span className="closeBtn" onClick={() => setView(null)}>
+            x
+          </span>
+        </div>
+        <div>
+          <img src={book.cover} alt={book.title} />
+        </div>
+        <p className="synopsis">{book.synopsis}</p>
+        <section>
+          <div>
+            <h4>Author:</h4>
+            <span>{book.author}</span>
+          </div>
+          <div>
+            <h4>Tipo:</h4>
+            <span>{book.type}</span>
+          </div>
+          <div>
+            <h4>Aonde parou:</h4>
+            <span>{book.stopped_at}</span>
+          </div>
+        </section>
+        <div className="divBtnsModal">
+          <button className="editBtn" onClick={() => bookEdit()}>
+            Editar
+          </button>
+          <button className="deleteBtn" onClick={() => bookDelete(book.id)}>
+            Remover
+          </button>
+        </div>
       </div>
     </StyledCard>
   );
