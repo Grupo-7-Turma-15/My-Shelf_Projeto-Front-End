@@ -1,60 +1,90 @@
 import styled from "styled-components";
 
 export const StyledRegisterPage = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: var(--color-grey-04);
-  width: 100vw;
-  height: 100vh;
-  .backBtn {
-    background-color: var(--color-grey-03);
-    border: none;
-    color: var(--color-grey-00);
-    padding: 8px;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    margin-left: 250px;
-  }
-  .backBtn:hover {
-    filter: saturate(32%) invert(87%)
-      drop-shadow(0px 0px 5px var(--color-blue-00));
-  }
-  form {
     display: flex;
     flex-direction: column;
-    background-color: var(--color-grey-03);
     justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+
     align-items: center;
-    gap: 22px;
-    width: 369px;
-    height: 502px;
-    padding: 22px;
-    h2 {
-      color: var(--color-grey-00);
-      font-size: var(--font-title);
+    background-color: var(--color-grey-04);
+    color: white;
+
+    .register__container {
+        display: flex;
+        flex-direction: column;
+        max-width: 320px;
+
+        gap: 20px;
     }
-    p {
-      color: var(--color-grey-01);
-      font-size: var(--font-label);
+
+    .return__button {
+        align-self: flex-end;
+
+        height: 29px;
+        width: fit-content;
+        padding: 5px 10px;
+
+        background-color: var(--color-grey-03);
+        color: white;
     }
-    button {
-      width: 324px;
-      height: 48px;
-      border: none;
-      border-radius: 4px;
-      font-size: var(--font-text-default);
-      font-weight: bold;
-    }
+
     button:hover {
-      background-color: var(--color-blue-00);
-      color: var(--color-grey-00);
-      filter: drop-shadow(0px 0px 5px var(--color-blue-00));
+        filter: saturate(32%) invert(87%)
+            drop-shadow(0px 0px 5px var(--color-blue-00));
     }
+
+    @media (min-width: 769px) {
+        .register__container {
+            width: 370px;
+        }
+    }
+`;
+
+export const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    padding: 42px 22px;
+    gap: 15px;
+
+    text-align: center;
+    background-color: var(--color-grey-03);
+
     .input {
-      filter: saturate(32%) invert(87%)
-        drop-shadow(0px 0px 5px var(--color-blue-00));
+        filter: invert(100%);
     }
-  }
+
+    .form__title {
+        display: flex;
+        flex-direction: column;
+
+        gap: 22px;
+    }
+
+    .form__title > h1 {
+        font-size: var(--font-sub-title);
+    }
+
+    .form__title > p {
+        font-size: 12px;
+        color: var(--color-grey-01);
+    }
+
+    .register__button {
+        box-sizing: border-box;
+
+        height: 48px;
+        width: 100%;
+
+        color: white;
+        background-color: #868e96;
+        font-size: var(--font-text-default);
+        font-weight: bold;
+        border: none;
+        border-radius: 4px;
+    }
 `;
