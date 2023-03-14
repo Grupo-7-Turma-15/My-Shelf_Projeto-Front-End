@@ -7,7 +7,9 @@ export const StyledDashboard = styled.div`
   background-color: var(--color-grey-04);
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
   position: relative;
+  z-index: 1;
   .colorBlue {
     color: var(--color-blue-00);
   }
@@ -34,8 +36,10 @@ export const StyledDashboard = styled.div`
     span {
       color: var(--color-grey-00);
       font-size: 20px;
+      font-weight: bold;
     }
-    .logoutBtn:hover {
+    .iconBtn:hover {
+      padding-inline: 0.2px;
       filter: drop-shadow(0px 0px 5px var(--color-blue-00));
     }
   }
@@ -48,5 +52,9 @@ export const StyledDashboard = styled.div`
     left: 0;
     top: 100px;
     padding-left: 10px;
+  }
+  @media screen and (min-width: 800px) {
+    overflow-x: auto;
+    overflow-y: auto;
   }
 `;

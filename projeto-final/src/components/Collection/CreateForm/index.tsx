@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { BookContext } from "../../../providers/BookContext";
 import { UserContext } from "../../../providers/UserContext";
 import Input from "../../InputDefault";
+import { StyledModalCreate } from "./style";
 
 export interface IBookFormCreate {
   userId: number;
@@ -29,30 +30,49 @@ const CreateForm = () => {
     titleCreate(formData);
 
     setCreate(false);
-    setUpdate(!update)
+    setUpdate(!update);
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <Input label="Titulo" register={register("title")} />
-      <Input label="Sinopse" register={register("synopsis")} />
-      <Input label="Capa" register={register("cover")} />
-      <Input label="Autor" register={register("author")} />
-      <Input label="Tipo" register={register("type")} />
-      <Input label="Onde parei" register={register("stopped_at")} />
-      <Input
-        label="ID do usuário"
-        register={register("userId")}
-        value={Number(userId)}
-      />
-      <select {...register("status")}>
-        <option value="lido">Lido</option>
-        <option value="lendo">Lendo</option>
-        <option value="quero ler">Quero ler</option>
-      </select>
-      <button type="submit">Criar</button>
-      <button onClick={() => setCreate(false)}>Cancelar</button>
-    </form>
+    <StyledModalCreate>
+      <form onSubmit={handleSubmit(submit)}>
+        <Input
+          label="Titulo"
+          register={register("title")}
+          className={"input"}
+        />
+        <Input
+          label="Sinopse"
+          register={register("synopsis")}
+          className={"input"}
+        />
+        <Input label="Capa" register={register("cover")} className={"input"} />
+        <Input
+          label="Autor"
+          register={register("author")}
+          className={"input"}
+        />
+        <Input label="Tipo" register={register("type")} className={"input"} />
+        <Input
+          label="Onde parei"
+          register={register("stopped_at")}
+          className={""}
+        />
+        <Input
+          label="ID do usuário"
+          register={register("userId")}
+          value={Number(userId)}
+          className={""}
+        />
+        <select {...register("status")}>
+          <option value="lido">Lido</option>
+          <option value="lendo">Lendo</option>
+          <option value="quero ler">Quero ler</option>
+        </select>
+        <button type="submit">Criar</button>
+        <button onClick={() => setCreate(false)}>Cancelar</button>
+      </form>
+    </StyledModalCreate>
   );
 };
 

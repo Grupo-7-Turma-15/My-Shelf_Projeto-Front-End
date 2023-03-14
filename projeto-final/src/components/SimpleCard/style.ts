@@ -5,4 +5,7 @@ export const StyledSimpleCard = styled.li`
     width: 177px;
     height: 215px;
   }
+  button {
+    background-color: var(--color-grey-04);
+  }
 `;
