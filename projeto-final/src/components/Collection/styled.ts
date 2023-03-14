@@ -22,7 +22,7 @@ export const StyledCollection = styled.div`
     }
   }
   .createTitleBtn:hover {
-    background-color: var(--color-green-00);
+    filter: drop-shadow(0px 0px 5px var(--color-blue-00));
   }
   ul {
     /* margin-left: 200px; */
@@ -39,6 +39,11 @@ export const StyledCollection = styled.div`
       }
       div {
         background-color: var(--color-grey-04);
+      }
+    }
+    li:hover {
+      img {
+        filter: drop-shadow(0px 0px 5px var(--color-blue-00));
       }
     }
   }
