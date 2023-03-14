@@ -1,8 +1,10 @@
 import { TextField } from "@mui/material";
 import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import { StyledFieldset } from "./style";
 
 interface IInputProps {
   label: string;
+  className: string;
   register: UseFormRegisterReturn<string>;
   error?: FieldError;
   type?: "name" | "password" | "email" | "img";
@@ -17,18 +19,20 @@ const Input = ({
   type,
   defaultValue,
   value,
+  className,
 }: IInputProps) => {
   return (
-    <fieldset>
+    <StyledFieldset>
       <TextField
         label={label}
         {...register}
         type={type}
         defaultValue={defaultValue}
         value={value}
+        className={className}
       />
       {error ? <p>error.message</p> : null}
-    </fieldset>
+    </StyledFieldset>
   );
 };
 

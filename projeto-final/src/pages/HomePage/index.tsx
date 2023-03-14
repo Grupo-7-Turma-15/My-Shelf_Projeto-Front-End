@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
+import { StyledHomePage } from "./style";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Input from "../../components/InputDefault";
 import { UserContext } from "../../providers/UserContext";
 import { IFormLogin } from "../../providers/UserContext/@types";
-import { StyledHomePage } from "./style";
+
 
 export default function HomePage() {
   const { goToRegister, userLogin } = useContext(UserContext);
@@ -21,21 +22,29 @@ export default function HomePage() {
   return (
     <StyledHomePage>
       <form onSubmit={handleSubmit(submit)}>
+        <h1>Login</h1>
         <Input
+          className="input"
           label="Seu email"
           type="email"
           register={register("email")}
           error={errors.email}
         />
         <Input
+          className="input"
           label="Sua senha"
           type="password"
           register={register("password")}
           error={errors.password}
         />
-        <button type="submit">Login</button>
+        <button className="loginBtn" type="submit">
+          Entrar
+        </button>
+        <p>Ainda não possui conta?</p>
+        <button className="registerBtn" onClick={() => goToRegister()}>
+          Cadastre-se
+        </button>
       </form>
-      <button onClick={() => goToRegister()}>Cadastrar</button>
     </StyledHomePage>
   );
 }
