@@ -1,12 +1,26 @@
 import styled from "styled-components";
 
-export const StyledHomePage = styled.div`
+export const StyledRegisterPage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: var(--color-grey-04);
   width: 100vw;
   height: 100vh;
+  .backBtn {
+    background-color: var(--color-grey-03);
+    border: none;
+    color: var(--color-grey-00);
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    margin-left: 250px;
+  }
+  .backBtn:hover {
+    filter: saturate(32%) invert(87%)
+      drop-shadow(0px 0px 5px var(--color-blue-00));
+  }
   form {
     display: flex;
     flex-direction: column;
@@ -17,9 +31,13 @@ export const StyledHomePage = styled.div`
     width: 369px;
     height: 502px;
     padding: 22px;
-    h1 {
+    h2 {
       color: var(--color-grey-00);
       font-size: var(--font-title);
+    }
+    p {
+      color: var(--color-grey-01);
+      font-size: var(--font-label);
     }
     button {
       width: 324px;
@@ -29,32 +47,14 @@ export const StyledHomePage = styled.div`
       font-size: var(--font-text-default);
       font-weight: bold;
     }
-
+    button:hover {
+      background-color: var(--color-blue-00);
+      color: var(--color-grey-00);
+      filter: drop-shadow(0px 0px 5px var(--color-blue-00));
+    }
     .input {
       filter: saturate(32%) invert(87%)
         drop-shadow(0px 0px 5px var(--color-blue-00));
-    }
-    .registerBtn:hover {
-      background-color: var(--color-blue-00);
-      filter:drop-shadow(0px 0px 5px var(--color-blue-00));
-    }
-    }
-    .loginBtn:hover {
-      color: var(--color-grey-04);
-      filter: saturate(32%) invert(87%)
-        drop-shadow(0px 0px 5px var(--color-blue-00));
-    }
-    .loginBtn {
-      background-color: var(--color-green-00);
-      color: var(--color-grey-00);
-    }
-    p {
-      color: var(--color-grey-01);
-      font-size: var(--font-label);
-    }
-    .registerBtn {
-      background-color: var(--color-grey-01);
-      color: var(--color-grey-00);
     }
   }
 `;
