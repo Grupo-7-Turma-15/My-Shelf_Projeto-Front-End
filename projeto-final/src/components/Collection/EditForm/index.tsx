@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { BookContext } from "../../../providers/BookContext";
 import { UserContext } from "../../../providers/UserContext";
 import Input from "../../InputDefault";
+import { StyledEditForm } from "./style";
 
 export interface IBookFormEdit {
   id: number;
@@ -35,26 +36,50 @@ const EditForm = () => {
   const submit: SubmitHandler<IBookFormEdit> = (formData) => {
     titleEdit(edit!.id, formData);
 
-    setUpdate(!update)
+    setUpdate(!update);
     setEdit(null);
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <Input label="Titulo" register={register("title")} />
-      <Input label="Sinopse" register={register("synopsis")} />
-      <Input label="Capa" register={register("cover")} />
-      <Input label="Autor" register={register("author")} />
-      <Input label="Tipo" register={register("type")} />
-      <Input label="Onde parei" register={register("stopped_at")} />
-      <select {...register("status")}>
-        <option value="lido">Lido</option>
-        <option value="lendo">Lendo</option>
-        <option value="quero ler">Quero ler</option>
-      </select>
-      <button type="submit">Editar</button>
-      <button onClick={() => setEdit(null)}>Cancelar</button>
-    </form>
+    <StyledEditForm>
+      <form className="modal" onSubmit={handleSubmit(submit)}>
+        <Input
+          label="Titulo"
+          register={register("title")}
+          className={"input"}
+        />
+        <Input
+          label="Sinopse"
+          register={register("synopsis")}
+          className={"input"}
+        />
+        <Input label="Capa" register={register("cover")} className={"input"} />
+        <Input
+          label="Autor"
+          register={register("author")}
+          className={"input"}
+        />
+        <Input label="Tipo" register={register("type")} className={"input"} />
+        <Input
+          label="Onde parei"
+          register={register("stopped_at")}
+          className={"input"}
+        />
+        <select {...register("status")}>
+          <option value="lido">Lido</option>
+          <option value="lendo">Lendo</option>
+          <option value="quero ler">Quero ler</option>
+        </select>
+        <div className="aligneBtn">
+          <button className="editBtn" type="submit">
+            Editar
+          </button>
+          <button className="cancelBtn" onClick={() => setEdit(null)}>
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </StyledEditForm>
   );
 };
 
